@@ -28,3 +28,11 @@ export interface Event {
     photos: Photo[]
     people: Person[]
 }
+
+export interface YandexMapInputProps {
+    latitudeSource: string;
+    longitudeSource: string;
+    label?: string;
+    defaultCenter?: [number, number];
+    defaultZoom?: number;
+}

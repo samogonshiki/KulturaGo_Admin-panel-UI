@@ -1,14 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import { useInput } from 'react-admin';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
-
-interface YandexMapInputProps {
-    latitudeSource: string;
-    longitudeSource: string;
-    label?: string;
-    defaultCenter?: [number, number];
-    defaultZoom?: number;
-}
+import {YandexMapInputProps} from "./types"
+import {mapRef,apiKey} from "./constants";
 
 const YandexMapInput: React.FC<YandexMapInputProps> = ({
    latitudeSource,
@@ -31,8 +25,6 @@ const YandexMapInput: React.FC<YandexMapInputProps> = ({
         Number(lngField.value) || defaultCenter[1],
     ];
 
-    const mapRef = useRef<any>(null);
-
     const handleMapClick = (e: any) => {
         const [lat, lng] = e.get('coords') as [number, number];
         latField.onChange(lat);
@@ -53,7 +45,7 @@ const YandexMapInput: React.FC<YandexMapInputProps> = ({
     return (
         <div style={{ margin: '1em 0' }}>
             {label && <label style={{ fontWeight: 500 }}>{label}</label>}
-            <YMaps query={{ apikey: 'ВАШ_API_КЛЮЧ_YANDEX', lang: 'ru_RU' }}>
+            <YMaps query={{ apikey: apiKey, lang: 'ru_RU' }}>
                 <Map
                     defaultState={{ center: defaultCenter, zoom: defaultZoom }}
                     state={{ center: coords, zoom: defaultZoom }}
