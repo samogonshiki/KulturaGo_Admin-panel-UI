@@ -2,7 +2,7 @@
 
 ![intro](source/git-prev-png.png)
 
-> [! IMPORTANT]
+> [!IMPORTANT]
 > 
 > ## **Запуск**
 > 
