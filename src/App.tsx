@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Admin, Resource } from 'react-admin';
-import dataProvider from './dataProvider';
-import authProvider from './authProvider';
+import dataProvider from './provider/dataProvider';
+import authProvider from './provider/authProvider';
 import LoginPage from './Login';
 import { EventList, EventCreate, EventEdit } from './events';
 
